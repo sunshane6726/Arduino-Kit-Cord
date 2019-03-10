@@ -3,10 +3,10 @@
 LiquidCrystal lcd(13, 12, 5, 4, 3, 2);   // LCD 핀 설정
 
 //DHT11 온습도센서 세팅
-#include "DHT.h"                // DHT11 라이브러리 포함
+#include "DHT.h"                // DHT11 라이브러리 포함 // 라이브러리 설정할떄 Adafruit_DHT 설정이용 ==> 만드는 회사의 센서를 다운 받아야함
 #define DHTPIN 7                // DHT11 연결핀
 #define DHTTYPE DHT11
-DHT dht(DHTPIN, DHTTYPE);
+DHT dht(DHTPIN, DHTTYPE);     // 클래스로 만들거라 불러오기만 하면 된다.
 
 //먼지센서 세팅
 int LED = 11;
@@ -75,7 +75,7 @@ void loop() {
   }
   lcd.print("ug");
 
-  //RGB LED 모듈 코드
+  //RGB LED 모듈 코드   // 판단하는 형태를 LCD화면으로 
   if (a < 35) {                 // 좋음
     analogWrite(9, 0);
     analogWrite(10, 20);
